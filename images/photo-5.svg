@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8768a"/>
+      <stop offset="50%" style="stop-color:#f9e4e8"/>
+      <stop offset="100%" style="stop-color:#fef0f3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg5)" rx="8"/>
+  <!-- Confetti / celebration shapes -->
+  <circle cx="120" cy="150" r="8" fill="#d4556b" opacity="0.2"/>
+  <circle cx="280" cy="180" r="6" fill="#d4a574" opacity="0.25"/>
+  <circle cx="180" cy="120" r="5" fill="#d4556b" opacity="0.15"/>
+  <rect x="220" y="130" width="12" height="12" rx="2" fill="#d4556b" opacity="0.15" transform="rotate(30 226 136)"/>
+  <rect x="140" y="200" width="10" height="10" rx="2" fill="#d4a574" opacity="0.2" transform="rotate(-20 145 205)"/>
+  <rect x="260" y="240" width="14" height="14" rx="2" fill="#d4556b" opacity="0.12" transform="rotate(45 267 247)"/>
+  <!-- Smiley / laughter -->
+  <g transform="translate(200,260)">
+    <circle r="50" fill="none" stroke="#d4556b" stroke-width="2" opacity="0.2"/>
+    <circle cx="-18" cy="-10" r="4" fill="#d4556b" opacity="0.3"/>
+    <circle cx="18" cy="-10" r="4" fill="#d4556b" opacity="0.3"/>
+    <path d="M-22,12 Q0,35 22,12" fill="none" stroke="#d4556b" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  </g>
+  <text x="200" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#d4556b" opacity="0.6">Laughter &amp; Joy</text>
+  <text x="200" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#b8384f" opacity="0.4">Replace with your photo</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef0f3"/>
+      <stop offset="100%" style="stop-color:#e8768a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg2)" rx="8"/>
+  <!-- Sunset scene -->
+  <circle cx="200" cy="260" r="60" fill="#d4a574" opacity="0.3"/>
+  <circle cx="200" cy="260" r="45" fill="#d4556b" opacity="0.2"/>
+  <line x1="80" y1="320" x2="320" y2="320" stroke="#d4556b" stroke-width="1" opacity="0.3"/>
+  <!-- Waves -->
+  <path d="M50,340 Q125,320 200,340 Q275,360 350,340" fill="none" stroke="#d4556b" stroke-width="1.5" opacity="0.2"/>
+  <path d="M50,360 Q125,340 200,360 Q275,380 350,360" fill="none" stroke="#d4556b" stroke-width="1.5" opacity="0.15"/>
+  <text x="200" y="410" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#d4556b" opacity="0.6">That Perfect Sunset</text>
+  <text x="200" y="440" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#b8384f" opacity="0.4">Replace with your photo</text>
+</svg>

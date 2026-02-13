@@ -14,10 +14,10 @@
 const CONFIG = {
     // Countdown: Set the date you're counting down to.
     // Format: "Month Day, Year HH:MM:SS" or "YYYY-MM-DDTHH:MM:SS"
-    COUNTDOWN_DATE: "June 15, 2026 00:00:00",
+    COUNTDOWN_DATE: "February 13, 2126 00:00:00",
 
     // The label shown above the countdown timer
-    COUNTDOWN_EVENT: "Our Next Anniversary",
+    COUNTDOWN_EVENT: "Our Marriage",
 
     // Number of floating background hearts
     NUM_BACKGROUND_HEARTS: 15,

@@ -271,6 +271,62 @@ function initParallax() {
 
 
 // ---------------------------------------------------------------
+// BROWNIE POINTS
+// Interactive scoreboard with localStorage persistence.
+// ---------------------------------------------------------------
+
+function initBrowniePoints() {
+    const saloniEl = document.getElementById('score-saloni');
+    const zaidEl = document.getElementById('score-zaid');
+    const statusEl = document.getElementById('brownie-status');
+    if (!saloniEl || !zaidEl) return;
+
+    let scores = { saloni: 0, zaid: 0 };
+
+    // Load from localStorage
+    try {
+        const saved = localStorage.getItem('browniePoints');
+        if (saved) scores = JSON.parse(saved);
+    } catch (e) { /* ignore */ }
+
+    function render() {
+        saloniEl.textContent = scores.saloni;
+        zaidEl.textContent = scores.zaid;
+
+        if (statusEl) {
+            if (scores.saloni > scores.zaid) {
+                statusEl.textContent = "Saloni is winning! Better step up, Zaid.";
+            } else if (scores.zaid > scores.saloni) {
+                statusEl.textContent = "Zaid is in the lead! Your move, Saloni.";
+            } else {
+                statusEl.textContent = "It's a tie! You're both equally amazing.";
+            }
+        }
+    }
+
+    function save() {
+        try { localStorage.setItem('browniePoints', JSON.stringify(scores)); } catch (e) { /* ignore */ }
+    }
+
+    document.querySelectorAll('.brownie-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var player = btn.dataset.player;
+            var action = btn.dataset.action;
+            if (action === 'plus') {
+                scores[player]++;
+            } else if (action === 'minus') {
+                scores[player]--;
+            }
+            save();
+            render();
+        });
+    });
+
+    render();
+}
+
+
+// ---------------------------------------------------------------
 // INITIALIZE EVERYTHING ON DOM READY
 // ---------------------------------------------------------------
 
@@ -282,4 +338,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initFloatingHearts();
     initMusicToggle();
     initParallax();
+    initBrowniePoints();
 });

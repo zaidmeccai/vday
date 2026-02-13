@@ -27,6 +27,7 @@
             <li><a href="#timeline">Our Story</a></li>
             <li><a href="#reasons">Why I Love You</a></li>
             <li><a href="#countdown">Countdown</a></li>
+            <li><a href="#brownie-points">Brownie Points</a></li>
         </ul>
     </nav>
 
@@ -401,6 +402,45 @@
             </div>
 
             <p class="countdown-message scroll-reveal">Every second until then, I'll be thinking of you.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         BROWNIE POINTS SECTION
+         A fun scoreboard for Saloni and Zaid.
+         ============================================================ -->
+    <section id="brownie-points">
+        <div class="section-container">
+            <h2 class="section-title scroll-reveal">Brownie Points</h2>
+            <p class="section-subtitle scroll-reveal">Who's winning today?</p>
+
+            <div class="brownie-scoreboard scroll-reveal">
+                <div class="brownie-player">
+                    <h3 class="brownie-name">Saloni</h3>
+                    <div class="brownie-score-wrapper">
+                        <button class="brownie-btn brownie-minus" data-player="saloni" data-action="minus" aria-label="Remove point from Saloni">&minus;</button>
+                        <span class="brownie-score" id="score-saloni">0</span>
+                        <button class="brownie-btn brownie-plus" data-player="saloni" data-action="plus" aria-label="Add point to Saloni">&plus;</button>
+                    </div>
+                </div>
+
+                <div class="brownie-vs">
+                    <span>&hearts;</span>
+                    <span class="brownie-vs-text">vs</span>
+                    <span>&hearts;</span>
+                </div>
+
+                <div class="brownie-player">
+                    <h3 class="brownie-name">Zaid</h3>
+                    <div class="brownie-score-wrapper">
+                        <button class="brownie-btn brownie-minus" data-player="zaid" data-action="minus" aria-label="Remove point from Zaid">&minus;</button>
+                        <span class="brownie-score" id="score-zaid">0</span>
+                        <button class="brownie-btn brownie-plus" data-player="zaid" data-action="plus" aria-label="Add point to Zaid">&plus;</button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="brownie-status scroll-reveal" id="brownie-status">It's a tie! You're both equally amazing.</p>
         </div>
     </section>
 

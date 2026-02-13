@@ -1,0 +1,12 @@
+{
+  "name": "vday",
+  "version": "1.0.0",
+  "description": "Valentine's Day website for Saloni & Zaid",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

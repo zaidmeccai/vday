@@ -272,7 +272,7 @@ function initParallax() {
 
 // ---------------------------------------------------------------
 // BROWNIE POINTS
-// Interactive scoreboard with localStorage persistence.
+// Synced scoreboard using backend API, with localStorage fallback.
 // ---------------------------------------------------------------
 
 function initBrowniePoints() {
@@ -282,12 +282,6 @@ function initBrowniePoints() {
     if (!saloniEl || !zaidEl) return;
 
     let scores = { saloni: 0, zaid: 0 };
-
-    // Load from localStorage
-    try {
-        const saved = localStorage.getItem('browniePoints');
-        if (saved) scores = JSON.parse(saved);
-    } catch (e) { /* ignore */ }
 
     function render() {
         saloniEl.textContent = scores.saloni;
@@ -304,25 +298,55 @@ function initBrowniePoints() {
         }
     }
 
-    function save() {
-        try { localStorage.setItem('browniePoints', JSON.stringify(scores)); } catch (e) { /* ignore */ }
+    // Fetch scores from server
+    function fetchScores() {
+        fetch('/api/scores')
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                scores = data;
+                render();
+            })
+            .catch(function() {
+                // Fallback to localStorage if server is unavailable
+                try {
+                    var saved = localStorage.getItem('browniePoints');
+                    if (saved) scores = JSON.parse(saved);
+                } catch (e) { /* ignore */ }
+                render();
+            });
+    }
+
+    // Send score update to server
+    function updateScore(player, action) {
+        fetch('/api/scores', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ player: player, action: action })
+        })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                scores = data;
+                try { localStorage.setItem('browniePoints', JSON.stringify(scores)); } catch (e) { /* ignore */ }
+                render();
+            })
+            .catch(function() {
+                // Fallback: update locally if server is down
+                if (action === 'plus') scores[player]++;
+                else scores[player]--;
+                try { localStorage.setItem('browniePoints', JSON.stringify(scores)); } catch (e) { /* ignore */ }
+                render();
+            });
     }
 
     document.querySelectorAll('.brownie-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            var player = btn.dataset.player;
-            var action = btn.dataset.action;
-            if (action === 'plus') {
-                scores[player]++;
-            } else if (action === 'minus') {
-                scores[player]--;
-            }
-            save();
-            render();
+            updateScore(btn.dataset.player, btn.dataset.action);
         });
     });
 
-    render();
+    // Load scores on init and refresh every 10 seconds
+    fetchScores();
+    setInterval(fetchScores, 10000);
 }
 
 
